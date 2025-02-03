@@ -43,7 +43,7 @@
                                            <form method="POST" action="{{ route('paypal') }}" accept-charset="UTF-8" style="display:inline">
                                                 @csrf
                                                 <input type="hidden" name="amount" value="{{ $item->amount }}">
-                                                <input type="hidden" name="currency" value="USD"> <!-- Set your currency here-->
+                                                <input type="hidden" name="currency" value="USD">
                                                 <input type="hidden" name="product_name" value="Student Registration Payment">
                                               <!--  <button type="submit" class="btn btn-success btn-sm" title="Make Payment" >--><form action="{{route('paypal')}}" method="post">
                                                     @csrf
@@ -53,10 +53,7 @@
                                                     <button type="submit" class="btn btn-success btn-sm" title="Make Payment">
                                                         <i class="fa fa-credit-card" aria-hidden="true"></i> Payment
                                                     </button>
-                                                <!--    <button type="submit"< class="fa fa-credit-card" aria-hidden="true">Payment</button></i>-->
 
-                                                   <!-- <i class="fa fa-credit-card" aria-hidden="true"></i> Payment-->
-                                                </button>
                                             </form>
 
                                         </td>

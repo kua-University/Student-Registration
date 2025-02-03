@@ -10,12 +10,11 @@ class PaypalController extends Controller
 {
     public function paypal(Request $request)
     {
-        // Create a new instance of the PayPal client
+
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
 
-        // Create the order
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
@@ -32,7 +31,6 @@ class PaypalController extends Controller
             ]
         ]);
 
-        // Log the order creation attempt
         Log::info('PayPal Order Creation Attempt', [
             'response' => $response,
             'request_price' => $request->price,
@@ -89,7 +87,6 @@ class PaypalController extends Controller
             }
         }
 
-        // Redirect to error if paymentId or PayerID is missing
         return redirect()->route('paypal.error')->with('error', 'Invalid payment data.');
     }
 
